@@ -1,1 +1,176 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>9-sinf fizika — Izoxorik jarayon</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#eef3f8;color:#17212b}
+.container{max-width:1100px;margin:auto;padding:20px}
+header{background:#17324d;color:white;border-radius:18px;padding:24px;margin-bottom:18px}
+h1,h2,h3{margin-top:0}.card{background:white;border-radius:16px;padding:20px;margin:18px 0;box-shadow:0 5px 18px #00000012}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+button{border:0;border-radius:10px;padding:11px 16px;background:#2563eb;color:white;font-weight:bold;cursor:pointer}
+button.secondary{background:#64748b}input[type=range]{width:220px}
+.stat{display:inline-block;background:#edf2f7;padding:10px 14px;border-radius:10px;margin:4px}
+canvas{width:100%;height:360px;border:1px solid #d7dee7;border-radius:12px;background:#fbfdff}
+.formula{font-size:1.25rem;background:#f1f5f9;padding:14px;border-left:5px solid #2563eb;border-radius:8px;margin:12px 0}
+.note{background:#fff7d6;padding:13px;border-radius:10px}.answer{background:#e8f7ee;padding:13px;border-radius:10px}
+table{width:100%;border-collapse:collapse}th,td{border:1px solid #d7dee7;padding:9px;text-align:left}
+@media(max-width:700px){.grid{grid-template-columns:1fr}.container{padding:10px}canvas{height:300px}}
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+<h1>9-sinf fizika: Izoxorik jarayon</h1>
+<p>3 ta reja bo‘yicha nazariya, animatsiya, simulyatsiya va masalalar.</p>
+</header>
 
+<section class="card">
+<h2>1. Izoxorik jarayonda holat tenglamalari</h2>
+<p>Izoxorik jarayonda gazning massasi va hajmi o‘zgarmaydi: <b>m = const, V = const</b>.</p>
+<div class="formula">pV = (m/M)RT &nbsp; → &nbsp; p/T = const &nbsp; → &nbsp; p₁/T₁ = p₂/T₂</div>
+<p>Harorat oshganda molekulalar tezroq harakat qiladi va qattiq idish devorlariga kuchliroq hamda tez-tez uriladi. Hajm o‘zgarmagani uchun bosim ortadi.</p>
+
+<div class="grid">
+<div>
+<h3>Gaz molekulalari animatsiyasi</h3>
+<canvas id="gasCanvas" width="520" height="360"></canvas>
+<div class="controls">
+<label>T = <b id="tempText">300</b> K</label>
+<input id="temp" type="range" min="150" max="700" value="300">
+<button id="pauseGas" class="secondary">Pauza</button>
+</div>
+<div>
+<span class="stat">Bosim: <b id="pressureText">100.0</b> kPa</span>
+<span class="stat">Tezlik: <b id="speedText">1.00</b>x</span>
+</div>
+</div>
+<div>
+<h3>Izoxorik bog‘lanish</h3>
+<canvas id="graph1" width="520" height="360"></canvas>
+<p class="note"><b>Simulyatsiya:</b> T ni o‘zgartiring. Bosim T ga to‘g‘ri proporsional ravishda o‘zgaradi.</p>
+</div>
+</div>
+</section>
+
+<section class="card">
+<h2>2. Sharl qonuni</h2>
+<p>O‘zgarmas hajmda berilgan massali gazning bosimi absolyut haroratga to‘g‘ri proporsional.</p>
+<div class="formula">p/T = const &nbsp;&nbsp; yoki &nbsp;&nbsp; p₁/T₁ = p₂/T₂</div>
+<p><b>Kelvin shkalasi:</b> T(K) = t(°C) + 273.</p>
+<p>Masalan, yopiq idish qizdirilsa, molekulalar tezlashadi va bosim ortadi. Avtomobil shinalarida ham harorat o‘zgarishi bosimga ta’sir qiladi.</p>
+<h3>Dinamik p–T grafik</h3>
+<canvas id="graph2" width="900" height="400"></canvas>
+<div class="controls">
+<label>T = <b id="t2">300</b> K</label>
+<input id="temp2" type="range" min="200" max="700" value="300">
+<button id="reset2" class="secondary">Qayta boshlash</button>
+</div>
+<div class="stat">p = <b id="p2">100.0</b> kPa</div>
+</section>
+
+<section class="card">
+<h2>3. Izoxora chizig‘i</h2>
+<p>p–T koordinatalarida izoxorik jarayon to‘g‘ri chiziq bilan ifodalanadi:</p>
+<div class="formula">p = (mR/MV)T</div>
+<p>Hajm kichik bo‘lsa, chiziq tikroq; hajm katta bo‘lsa, chiziq yotiqroq bo‘ladi.</p>
+<canvas id="isoCanvas" width="900" height="430"></canvas>
+<div class="controls">
+<label>Hajm V = <b id="volText">1.00</b> L</label>
+<input id="volume" type="range" min="0.5" max="3" step="0.1" value="1">
+<button id="animateIso">Animatsiyani boshlash</button>
+</div>
+<div class="stat" id="isoNote">V kamayganda izoxora qiyaligi oshadi.</div>
+</section>
+
+<section class="card">
+<h2>Namunaviy masala</h2>
+<p><b>Masala:</b> Gaz 280 K dan 540 K gacha izoxorik qizdirilganda uning bosimi 39 kPa ga ortdi. Dastlabki va oxirgi bosimni toping.</p>
+<p><b>Berilgan:</b> T₁ = 280 K, T₂ = 540 K, Δp = 39 kPa.</p>
+<p><b>Formula:</b> p₁/T₁ = p₂/T₂ va p₂ − p₁ = 39.</p>
+<p>p₂ = p₁ · 540/280. Shuning uchun:</p>
+<div class="formula">p₁(540/280 − 1) = 39</div>
+<div class="formula">p₁ = 42 kPa &nbsp;&nbsp; va &nbsp;&nbsp; p₂ = 81 kPa</div>
+<div class="answer"><b>Javob:</b> dastlabki bosim 42 kPa, oxirgi bosim 81 kPa.</div>
+</section>
+
+<section class="card">
+<h2>Mustahkamlash</h2>
+<ol>
+<li>Yopiq qattiq idish qizdirilganda nima uchun bosim ortadi?</li>
+<li>300 K va 600 K haroratdagi bir xil hajmli gazlardan qaysi birining bosimi katta? Necha marta?</li>
+<li>Izoxorik jarayonda harorat 2 marta oshsa, bosim qanday o‘zgaradi?</li>
+</ol>
+<h3>Mustaqil masalalar</h3>
+<ol>
+<li>Gaz 300 K dan 450 K gacha qizdirildi. Dastlabki bosim 120 kPa. Oxirgi bosimni toping.</li>
+<li>Gazning bosimi 100 kPa. U 300 K dan 600 K gacha qizdirildi. Oxirgi bosimni aniqlang.</li>
+</ol>
+</section>
+
+<section class="card">
+<h2>Asosiy formulalar</h2>
+<table>
+<tr><th>Tushuncha</th><th>Formula</th></tr>
+<tr><td>Mendeleyev–Klapeyron</td><td>pV = (m/M)RT</td></tr>
+<tr><td>Izoxorik jarayon</td><td>V = const</td></tr>
+<tr><td>Sharl qonuni</td><td>p/T = const</td></tr>
+<tr><td>Ikki holat</td><td>p₁/T₁ = p₂/T₂</td></tr>
+<tr><td>Kelvin</td><td>T = t + 273</td></tr>
+</table>
+</section>
+</div>
+
+<script>
+const gas=document.getElementById('gasCanvas'), gc=gas.getContext('2d');
+const temp=document.getElementById('temp'), tempText=document.getElementById('tempText');
+const pressureText=document.getElementById('pressureText'), speedText=document.getElementById('speedText');
+let particles=[], running=true;
+for(let i=0;i<28;i++) particles.push({x:35+Math.random()*450,y:35+Math.random()*290,vx:(Math.random()-.5)*2,vy:(Math.random()-.5)*2});
+function gasDraw(){
+  let T=+temp.value, s=Math.sqrt(T/300), p=100*T/300;
+  tempText.textContent=T; pressureText.textContent=p.toFixed(1); speedText.textContent=s.toFixed(2);
+  gc.clearRect(0,0,520,360); gc.strokeStyle='#17212b'; gc.lineWidth=4; gc.strokeRect(15,15,490,330);
+  particles.forEach(q=>{
+    if(running){q.x+=q.vx*s;q.y+=q.vy*s;if(q.x<22||q.x>498)q.vx*=-1;if(q.y<22||q.y>338)q.vy*=-1;}
+    gc.beginPath();gc.arc(q.x,q.y,5,0,Math.PI*2);gc.fillStyle='#2563eb';gc.fill();
+  });
+  gc.fillStyle='#17212b';gc.font='16px Arial';gc.fillText('Yopiq qattiq idish',170,335);
+  requestAnimationFrame(gasDraw);
+}
+document.getElementById('pauseGas').onclick=()=>{running=!running;document.getElementById('pauseGas').textContent=running?'Pauza':'Davom etish'};
+gasDraw();
+
+function drawLine(canvas, T, p){
+ let c=canvas.getContext('2d'),w=canvas.width,h=canvas.height;c.clearRect(0,0,w,h);
+ c.strokeStyle='#94a3b8';c.lineWidth=1;
+ c.beginPath();c.moveTo(55,h-45);c.lineTo(w-20,h-45);c.moveTo(55,h-45);c.lineTo(55,20);c.stroke();
+ c.fillStyle='#17212b';c.font='15px Arial';c.fillText('T (K)',w-70,h-18);c.fillText('p (kPa)',10,28);
+ c.strokeStyle='#dc2626';c.lineWidth=3;c.beginPath();
+ for(let x=0;x<=w-75;x+=3){let tx=150+x*550/(w-75),py=h-45-(100*tx/300)*2.1;if(x===0)c.moveTo(55+x,py);else c.lineTo(55+x,py)}c.stroke();
+ let x=55+(T-150)*(w-75)/550, y=h-45-p*2.1;
+ c.fillStyle='#2563eb';c.beginPath();c.arc(x,y,7,0,Math.PI*2);c.fill();
+ c.fillText('T='+T+' K, p='+p.toFixed(1)+' kPa',70,45);
+}
+function updateG(){drawLine(document.getElementById('graph1'),+temp.value,100*temp.value/300)}
+temp.oninput=updateG;updateG();
+
+const temp2=document.getElementById('temp2');
+function update2(){let T=+temp2.value,p=100*T/300;document.getElementById('t2').textContent=T;document.getElementById('p2').textContent=p.toFixed(1);drawLine(document.getElementById('graph2'),T,p)}
+temp2.oninput=update2;document.getElementById('reset2').onclick=()=>{temp2.value=300;update2()};update2();
+
+const iso=document.getElementById('isoCanvas'), ic=iso.getContext('2d'), vol=document.getElementById('volume');
+function drawIso(Tpoint=0){
+ let V=+vol.value,w=iso.width,h=iso.height;ic.clearRect(0,0,w,h);
+ ic.strokeStyle='#94a3b8';ic.lineWidth=1;ic.beginPath();ic.moveTo(60,h-55);ic.lineTo(w-20,h-55);ic.moveTo(60,h-55);ic.lineTo(60,25);ic.stroke();
+ ic.fillStyle='#17212b';ic.font='16px Arial';ic.fillText('T (K)',w-70,h-20);ic.fillText('p (kPa)',12,30);
+ [0.5,1,2,3].forEach((v,i)=>{let k=180/v;ic.strokeStyle=['#2563eb','#dc2626','#16a34a','#9333ea'][i];ic.lineWidth=3;ic.beginPath();for(let T=0;T<=700;T+=5){let x=60+T*(w-90)/700,y=h-55-k*T*0.35;if(T===0)ic.moveTo(x,y);else ic.lineTo(x,y)}ic.stroke();ic.fillStyle=ic.strokeStyle;ic.fillText('V='+v+' L',x=650,65+i*25)});
+ let x=60+Tpoint*(w-90)/700,y=h-55-(180/V)*Tpoint*0.35;ic.fillStyle='#111827';ic.beginPath();ic.arc(x,y,8,0,Math.PI*2);ic.fill();
+}
+vol.oninput=()=>{document.getElementById('volText').textContent=(+vol.value).toFixed(1);document.getElementById('isoNote').textContent=+vol.value<1.2?'Hajm kichik: izoxora tikroq.':+vol.value>2?'Hajm katta: izoxora yotiqroq.':'Hajm o‘rtacha: qiyalik ham o‘rtacha.';drawIso()};
+document.getElementById('animateIso').onclick=()=>{let T=0;function a(){T+=5;drawIso(T);if(T<700)requestAnimationFrame(a)}a()};drawIso();
+</script>
+</body>
+</html>

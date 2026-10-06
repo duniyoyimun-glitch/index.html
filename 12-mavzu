@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <title>9-sinf Fizika Darsi uchun Gemini Prompti</title>
+</head>
+<body>
+
+    <h1>9-SINF FIZIKA: IZOXORIK JARAYON MAVZUSIDA MUKAMMAL DARSLIK VA INKLYUZIV PROMPT</h1>
+    <hr>
+
+    <h2>[SUN'IY INTELLEKT UCHUN BUYRUQ (PROMPT)]</h2>
+
+    <p><strong>Roli:</strong> Sen fizika fani bo'yicha yuqori malakali professor, metodist va animatsiyalar yaratuvchi dasturchisan.</p>
+    
+    <p><strong>Vazifang:</strong> 9-sinf Fizika kursining "12-mavzu: Izoxorik jarayon" mavzusini quyida keltirilgan 3 ta reja asosida eng tushunarli, chuqurlashtirilgan va interaktiv shaklda yoritib berish.</p>
+
+    <hr>
+
+    <h3>KENGAYTIRILGAN MA'LUMOTLAR VA DARS REJASI:</h3>
+
+    <h4>1. Izoxorik jarayonda holat tenglamalari. Animatsiya va simulyatsiyasi bilan.</h4>
+    <ul>
+        <li><strong>Nazariy qism:</strong> $m = \text{const}$ va $V = \text{const}$ bo'lganda ideal gaz holatining o'zgarishi. Mendeleyev-Klapeyron tenglamasidan ($pV = \frac{m}{M}RT$) foydalanib, ikki xil holat uchun $p_1V = \frac{m}{M}RT_1$ va $p_2V = \frac{m}{M}RT_2$ munosabatlarini keltirib chiqarish. Ularni hadma-had bo'lish orqali $\frac{p_1}{T_1} = \frac{p_2}{T_2}$ ekanligini isbotlash.</li>
+        <li><strong>Mikrodunyodagi talqin:</strong> Hajm o'zgarmas bo'lgani uchun molekulalarning zarba chastotasi va kuchi faqatgina haroratga (kinetik energiyaga) bog'liqligini tushuntir.</li>
+        <li><strong>Vizual/Animatsiya tavsifi:</strong> HTML5/CSS yoki Python (Matplotlib) yordamida simulyatsiya ssenariysini yozib ber. Unda yopiq qattiq idish ichida harorat ortishi bilan molekulalarning tezlashishi va devorga urilish kuchi ortayotgani, natijada bosim datchigi ko'rsatkichi ko'tarilayotgani vizual tasvirlansin.</li>
+    </ul>
+
+    <h4>2. Sharl qonuni. Animatsiya va simulyatsiyasi bilan.</h4>
+    <ul>
+        <li><strong>Tarixiy va ilmiy qism:</strong> 1787-yilda fransuz fizigi Jak Sharl tomonidan kashf etilgan qonun: "O'zgarmas hajmda berilgan massali gazning bosimi absolyut haroratga to'g'ri proporsional ravishda o'zgaradi" ($\frac{p}{T} = \text{const}$). Kundalik hayotiy misollar (masalan, germetik yopiq idish yoki lampochka qiziganda bosim ortishi, quyosh ostida qolib ketgan ballonda bosim ko'tarilishi).</li>
+        <li><strong>Vizual/Animatsiya tavsifi:</strong> Harorat ($T$) o'qida qiymat chiziqli ortganda Bosim ($p$) qiymati ham xuddi shunday nisbatda o'sib boruvchi raqamli dinamik grafik simulyatsiyasining algoritmini yarat.</li>
+    </ul>
+
+    <h4>3. Izoxora chizig'i. Animatsiya va simulyatsiyasi bilan.</h4>
+    <ul>
+        <li><strong>Grafik qism:</strong> $p-T$ koordinata tekisligida izoxorik jarayonni ifodalovchi to'g'ri chiziq — **izoxora chizig'i** deb atalishi. Bu chiziq koordinata boshidan ($0$ nuqtadan) chiquvchi to'g'ri chiziq ekanligini isbotlash (chunki absolyut nol haroratda ($0\text{ K}$) ideal gaz bosimi ham nolga teng deb olinadi). Turlicha hajmlar ($V_1$ va $V_2$) uchun izoxoralar qiyaliklarini taqqoslash (hajm kichik bo'lsa, izoxora tikroq bo'lishini tushuntir).</li>
+        <li><strong>Vizual/Animatsiya tavsifi:</strong> Grafikda harorat ortishi bilan nuqtaning koordinata boshidan yuqoriga qarab harakatlanib, qizil chiziq (izoxora) hosil qilishi animatsiyasini (kodi yoki batafsil tavsifini) taqdim et.</li>
+    </ul>
+
+    <hr>
+
+    <h3>CHIQISH FORMATIGA QO'YILADIGAN TALABLAR:</h3>
+    <ol>
+        <li>Har bir reja bandini xuddi darslik kitobdagidek akademik, ammo 9-sinf bolasiga mos sodda tilda yoz.</li>
+        <li>Har bir bo'lim oxirida o'quvchi brauzerda yoki tasavvurida ko'ra oladigan **animatsiya/simulyatsiya kod bloki (HTML/JS yoki Python)** yoki uni amalga oshirish qadamlarini aniq yoz.</li>
+        <li>Kitobdagi masala namunasini (Gaz $280\text{ K}$ dan $540\text{ K}$ gacha izoxorik qizirilganda bosimi $39\text{ kPa}$ ga ortdi...) tahliliy va to'liq yechib ko'rsat.</li>
+        <li>Mavzuni mustahkamlash uchun 3 ta kreativ savol va 2 ta mustaqil yechish uchun masala qo'sh.</li>
+    </ol>
+
+</body>
+</html>
